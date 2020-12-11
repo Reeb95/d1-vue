@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Bootstrap 4 Minimal Template</title>
+
+	<link rel="shortcut icon" href="img/logoPG.png" type="image/x-icon">
+	<link rel="apple-touch-icon" href="">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Link to your css file -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Vue.js -->
+	<script src="js/vue.js"></script>
+
+</head>
+
+<body>
+	<!-- Start coding here -->
+
+	<h1></h1>
+
+	<div class="row text-center">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8"></div>
+		<div class="col-sm-2"></div>
+	</div>
+	<!-- Start coding here -->
+
+	<div class="container align-content-center ">
+		<h1 class="text-center">Mantenedor de Productos</h1>
+		<hr>
+
+
+		<div id="app">
+			<div class="punteado">
+				<div class="form-group row">
+					<div class="col-sm-12">
+						<h4 class="text-center">Añadir un Producto</h4>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-2 col-form-label"><strong>Nombre:</strong></label>
+					<div class="col-sm-10">
+						<input v-model="nNombre" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label"><strong>Descripción:</strong></label>
+					<div class="col-sm-10">
+						<input v-model="nDescripcion" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputPassword" class="col-sm-2 col-form-label"><strong>Precio:</strong></label>
+					<div class="col-sm-10">
+						<input v-model="nPrecio" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="container text-center">
+					<h1>{{nNombre}}</h1>
+					<h1>
+						<h1></h1>
+					</h1>
+					<span v-if="error.length > 0" class="text-danger p-1">{{ error }}</span>
+					<button class="btnRedondo text-center" v-on:click="addNewProduct()">Añadir Producto</button>
+				</div>
+				<pre>{{ $data }}</pre>
+			</div><br><br>
+
+			<h1 class="text-left">Lista de Productos</h1>
+			<div class="card table" v-if="productos.length > 0">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" v-for="(producto, index) in productos">
+
+						<div v-if="index === editIndex" class="d-flex">
+							<input class="form-control mr-auto" type="text" v-model="editProducto.nombre">
+							<button type="button" class="btn btn-light mx-2" @click="saveTask(false)">Cancelar</button>
+							<button type="button" class="btn btn-success" @click="saveTask(true)">Guardar</button>
+						</div>
+						<div v-else class="d-flex align-items-center">
+							<span class="mr-auto" :class="{'completed-producto': producto.status}" role="button" @click="changeStatus(index)">
+								{{ producto.nombre }}
+							</span>
+							<button type="button" class="btn btn-info mx-2" @click="editTask(index)">Editar</button>
+							<button type="button" class="btn btn-danger" @click="deleteProducto(index)">Eliminar</button>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+
+
+			<table class="  table table-bordered text-justify " >
+				<thead>
+					<tr>
+						<th  class="table-secondary col-md-4">Nombre</th>
+						<th class="table-secondary col-md-3">Descripción</th>
+						<th class="table-secondary col-md-3">Precio</th>
+						<th class="table-secondary col-md-1"></th>
+						<th class="table-secondary col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					
+					<tr class="" v-for="(producto, index) in productos">
+						<td scope="row">{{ producto.nombre }}</td>
+						<td >{{ producto.descripcion }}</td>
+						<td >{{ producto.precio }}</td>
+						<td class="text-center"><button type="button" class="btn btnRedondo text-center " @click="editTask(index)">Editar</button></td>
+						<td class="text-center"><button type="button" class="btn btnRedondo text-center" @click="deleteProducto(index)">Eliminar</button></td>
+					</tr>s
+
+				</tbody>	
+			</table>
+
+		</div>
+
+
+		<hr>
+
+		<div class="row ">
+			<div class="col-sm-12"></div>
+			<div class="col-sm-12"></div>
+
+		</div>
+	</div>
+
+	<hr>
+	<hr>
+
+
+
+
+
+
+
+
+
+	<!-- Coding End -->
+
+
+
+	<!-- Insert Comment Here -->
+
+	<!-- My JsCode -->
+	<script src="js/myCode.js"></script>
+	<!-- VueIndex.js -->
+	<script src="js/vueIndex.js"></script>
+
+	<!-- Do not forget JQuery-->
+	<script src="js/jquery-3.5.1.js"></script>
+	<!-- Popper.js -->
+	<!--<script src="js/popper.min.js"></script>-->
+
+
+	<!-- Bootstrap bundle for full components support -->
+	<script src="js/bootstrap.bundle.min.js"></script>
+</body></html>

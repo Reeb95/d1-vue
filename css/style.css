@@ -1,0 +1,25 @@
+.punteado {
+    border-style: dotted;
+    border-width: 2px;
+    border-color: deepskyblue;
+    
+   padding: 25px;
+    border-radius: 25px;
+}
+.btnRedondo {
+    border-style: groove;
+    
+    border-color: deepskyblue;
+    padding: 5px;
+    border-radius: 15px;
+    background-color: lightgray;
+    
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+hr {
+ 
+  background-color:lightgray;
+    
+}
