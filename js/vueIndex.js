@@ -58,7 +58,7 @@ const app = new Vue({
 			this.editProducto = -1;
 		},
 		deleteProducto(index) {
-			this.producto.splice(index, 1);
+			this.productos.splice(index, 1);
 		}
 
 

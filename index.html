@@ -75,49 +75,40 @@
 			</div><br><br>
 
 			<h1 class="text-left">Lista de Productos</h1>
-			<div class="card table" v-if="productos.length > 0">
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item" v-for="(producto, index) in productos">
-
-						<div v-if="index === editIndex" class="d-flex">
-							<input class="form-control mr-auto" type="text" v-model="editProducto.nombre">
-							<button type="button" class="btn btn-light mx-2" @click="saveTask(false)">Cancelar</button>
-							<button type="button" class="btn btn-success" @click="saveTask(true)">Guardar</button>
-						</div>
-						<div v-else class="d-flex align-items-center">
-							<span class="mr-auto" :class="{'completed-producto': producto.status}" role="button" @click="changeStatus(index)">
-								{{ producto.nombre }}
-							</span>
-							<button type="button" class="btn btn-info mx-2" @click="editTask(index)">Editar</button>
-							<button type="button" class="btn btn-danger" @click="deleteProducto(index)">Eliminar</button>
-						</div>
-
-					</li>
-				</ul>
-			</div>
+		
 
 
-			<table class="  table table-bordered text-justify " >
+			<table class="  table table-bordered text-justify " v-if="productos.length > 0">
 				<thead>
 					<tr>
-						<th  class="table-secondary col-md-4">Nombre</th>
+						<th class="table-secondary col-md-4">Nombre</th>
 						<th class="table-secondary col-md-3">Descripción</th>
 						<th class="table-secondary col-md-3">Precio</th>
 						<th class="table-secondary col-md-1"></th>
 						<th class="table-secondary col-md-1"></th>
 					</tr>
 				</thead>
-				<tbody>
-					
-					<tr class="" v-for="(producto, index) in productos">
+				<tbody v-for="(producto, index) in productos">
+
+
+
+					<tr v-if="index === editIndex" class="">
+						<td scope="row"><input class="form-control mr-auto" type="text" v-model="editProducto.nombre"></td>
+						<td><button type="button" class="btn btn-light mx-2" @click="saveTask(false)">Cancelar</button></td>
+						<td><button type="button" class="btn btn-success" @click="saveTask(true)">Guardar</button></td>
 						<td scope="row">{{ producto.nombre }}</td>
-						<td >{{ producto.descripcion }}</td>
-						<td >{{ producto.precio }}</td>
+						<td scope="row"></td>
+					</tr>
+					<tr v-else class="">
+						<td scope="row">{{ producto.nombre }}</td>
+						<td>{{ producto.descripcion }}</td>
+						<td>{{ producto.precio }}</td>
 						<td class="text-center"><button type="button" class="btn btnRedondo text-center " @click="editTask(index)">Editar</button></td>
 						<td class="text-center"><button type="button" class="btn btnRedondo text-center" @click="deleteProducto(index)">Eliminar</button></td>
-					</tr>s
+					</tr>
 
-				</tbody>	
+
+				</tbody>
 			</table>
 
 		</div>
@@ -162,4 +153,6 @@
 
 	<!-- Bootstrap bundle for full components support -->
 	<script src="js/bootstrap.bundle.min.js"></script>
-</body></html>
+</body>
+
+</html>
